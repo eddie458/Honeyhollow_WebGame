@@ -1,0 +1,14 @@
+{
+  "collections": [
+    { "id": "berries", "items": ["berry_basket", "jam_jar", "berry_pie", "garden_gloves", "watering_can"], "reward": { "coins": 500, "xp": 50, "energy": 3 } },
+    { "id": "orchard", "items": ["corn_cob", "wheat_sheaf", "straw_hat", "pitchfork", "scarecrow"], "reward": { "goods": 100, "xp": 75, "volunteers": 1 } },
+    { "id": "home", "items": ["teapot", "slippers", "house_key", "quilt", "fern"], "reward": { "coins": 800, "xp": 60, "permits": 1 } },
+    { "id": "bakehouse", "items": ["rolling_pin", "whisk", "flour_sack", "cupcake", "pretzel"], "reward": { "coins": 600, "xp": 50, "energy": 4 } },
+    { "id": "blooms", "items": ["tulip", "daisy", "rose", "sunflower", "lavender"], "reward": { "xp": 80, "energy": 3, "parts": { "paint": 1 } } },
+    { "id": "toybox", "items": ["spinning_top", "yoyo", "toy_blocks", "rubber_duck", "kite"], "reward": { "coins": 1000, "xp": 100, "volunteers": 1 } },
+    { "id": "diner", "items": ["milkshake", "ketchup", "jukebox", "pie_slice", "neon_sign"], "reward": { "coins": 1200, "xp": 90, "energy": 5 } },
+    { "id": "civic", "items": ["ribbon_scissors", "gavel", "medal", "megaphone", "golden_key"], "reward": { "xp": 150, "permits": 1, "items": { "goldenhive": 1 } } },
+    { "id": "seaside", "items": ["anchor", "compass", "spyglass", "ship_bottle", "seashell"], "reward": { "coins": 2000, "xp": 150, "parts": { "key": 1 }, "energy": 5 } },
+    { "id": "rail", "items": ["ticket", "lantern", "whistle", "conductor_cap", "pocket_watch"], "reward": { "xp": 200, "parts": { "toolkit": 2 }, "volunteers": 2 } }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "saveVersion": 1,
+  "start": {
+    "coins": 7000,
+    "energy": 20,
+    "volunteers": 3,
+    "permits": 0,
+    "goods": 0,
+    "cityName": "Honeyhollow",
+    "avatar": "beekeeper",
+    "lots": [[0, 0], [1, 0], [2, 0], [0, 1], [1, 1], [2, 1], [0, 2], [1, 2], [2, 2]]
+  },
+  "world": {
+    "lotSize": 12,
+    "roadSnap": 3,
+    "seaFromLotY": 3,
+    "minLotX": -6,
+    "maxLotX": 8,
+    "minLotY": -8,
+    "railX": -3,
+    "railWidth": 3
+  },
+  "energy": {"baseCap": 20, "capPerLevel": 1, "maxCap": 50, "regenSeconds": 180},
+  "volunteers": {"regenSeconds": 14400, "max": 10},
+  "population": {
+    "baseCap": 50,
+    "happyMax": 0.75,
+    "contentMax": 0.89,
+    "moodSales": {"happy": 1.15, "content": 1, "sad": 0.85}
+  },
+  "goods": {"baseCap": 50, "perCrate": 15},
+  "shops": {
+    "baseRate": 8,
+    "perResident": 0.15,
+    "minPerShop": 1.5,
+    "maxPerShop": 40,
+    "touristWeight": 2,
+    "tourBusShare": 0.35
+  },
+  "crops": {
+    "witherFactor": 2,
+    "waterSeconds": 0.25,
+    "masteryThresholds": [50, 150, 300],
+    "masteryBonus": [0.1, 0.2, 0.3]
+  },
+  "businessMastery": {
+    "thresholds": [25, 75, 200],
+    "bonus": [0.05, 0.1, 0.15]
+  },
+  "decorations": {"radius": 3},
+  "sell": {"refund": 0.25},
+  "drops": {
+    "build": {"coins": [4,10], "xp": [1,1], "energy": 0.08, "collectible": 0},
+    "finish": {"coins": [10,25], "xp": [2,4], "energy": 0.2, "collectible": 0, "part": 0.05},
+    "rent": {"xp": [1,2], "energy": 0.1, "collectible": 0.04},
+    "shop": {"xp": [2,4], "energy": 0.1, "collectible": 0.045},
+    "profit": {"xp": [2,3], "energy": 0.15, "collectible": 0.05, "part": 0.1},
+    "harvest": {"xp": [0,1], "energy": 0.08, "collectible": 0.04, "bonusGoods": 0.15},
+    "supply": {"xp": [1,1], "energy": 0, "collectible": 0},
+    "unload": {"xp": [2,3], "energy": 0.1, "collectible": 0.05, "part": 0.12},
+    "train": {"xp": [3,5], "energy": 0.15, "collectible": 0.06, "part": 0.3},
+    "help": {"coins": [25,25], "xp": [1,1], "energy": 0, "collectible": 0.03, "part": 0.2}
+  },
+  "doobers": {"maxCoinPieces": 4, "maxXpPieces": 2},
+  "bonusBar": {
+    "window": 6,
+    "warn": 2.5,
+    "stages": [5, 4, 4, 4, 3, 3, 3, 2, 2, 2],
+    "payout": [1.5, 4.5, 9, 15, 22.5, 31.5, 42, 54, 67.5, 82.5],
+    "maxBank": 400
+  },
+  "daily": [
+    {"energy": 2, "coins": 100},
+    {"energy": 3, "coins": 250},
+    {"energy": 4, "coins": 400, "volunteers": 1},
+    {"energy": 5, "coins": 600, "permits": 1},
+    {"energy": 6, "coins": 1000, "volunteers": 2, "permits": 1, "parts": {"key": 1}}
+  ],
+  "expansion": {
+    "coins": [5000, 9000, 14000, 20000, 28000, 38000, 50000, 65000, 82000, 100000],
+    "coinsStep": 25000,
+    "population": [40, 90, 160, 250, 360, 500, 680, 900, 1150, 1450],
+    "populationStep": 350,
+    "permitsPerExpansion": 1
+  },
+  "visit": {
+    "helpsPerDay": 5,
+    "bonus": {"coins": 100, "energy": 3, "xp": 1},
+    "helpReward": {"coins": 25, "xp": 1, "reputation": 1},
+    "npcHelpsOnYou": 3
+  },
+  "npcGifts": [
+    {"w": 30, "reward": {"energy": 2}},
+    {"w": 20, "reward": {"energy": 3}},
+    {"w": 18, "reward": {"goods": 40}},
+    {"w": 14, "reward": {"volunteers": 1}},
+    {"w": 10, "reward": {"coins": 300}},
+    {"w": 6, "reward": {"permits": 1}},
+    {"w": 6, "reward": {"parts": {"brick": 1}}},
+    {"w": 5, "reward": {"parts": {"paint": 1}}},
+    {"w": 5, "reward": {"parts": {"toolkit": 1}}},
+    {"w": 4, "reward": {"parts": {"key": 1}}},
+    {"w": 12, "reward": {"collectibles": {"@wishlist": 1}}}
+  ],
+  "train": {"unlockLevel": 5, "npcStopBonus": 1},
+  "sanity": {
+    "maxSaveBytes": 524288,
+    "coinsPerMinuteBase": 400,
+    "coinsPerMinutePerLevel": 120,
+    "coinsBurst": 60000,
+    "xpPerMinuteBase": 25,
+    "xpPerMinutePerLevel": 4,
+    "xpBurst": 4000,
+    "goodsPerMinute": 400,
+    "goodsBurst": 6000,
+    "relaxedMultiplier": 4,
+    "maxObjects": 4000
+  }
+}

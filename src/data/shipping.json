@@ -1,0 +1,24 @@
+{
+  "contracts": [
+    { "id": "pebble", "coins": 25, "goods": 19, "time": 300 },
+    { "id": "gullwing", "coins": 44, "goods": 38, "time": 3600 },
+    { "id": "coral", "coins": 55, "goods": 56, "time": 14400 },
+    { "id": "saltmarsh", "coins": 70, "goods": 87, "time": 28800, "level": 8 },
+    { "id": "lighthouse", "coins": 76, "goods": 100, "time": 43200, "level": 10 },
+    { "id": "farisles", "coins": 95, "goods": 137, "time": 86400, "level": 12 }
+  ],
+  "routes": [
+    { "id": "valley", "type": "buy", "cost": 150, "base": 50, "perStop": 10, "stops": 2, "time": 300 },
+    { "id": "hillside", "type": "buy", "cost": 400, "base": 140, "perStop": 20, "stops": 3, "time": 3600 },
+    { "id": "mountain", "type": "buy", "cost": 900, "base": 320, "perStop": 40, "stops": 4, "time": 14400, "level": 8 },
+    { "id": "grandtour", "type": "buy", "cost": 2000, "base": 700, "perStop": 80, "stops": 5, "time": 43200, "level": 12 },
+    { "id": "market", "type": "sell", "cost": 50, "base": 210, "perStop": 25, "stops": 2, "time": 300 },
+    { "id": "fair", "type": "sell", "cost": 150, "base": 600, "perStop": 60, "stops": 3, "time": 3600 },
+    { "id": "cityexpress", "type": "sell", "cost": 400, "base": 1500, "perStop": 120, "stops": 4, "time": 14400, "level": 8 },
+    { "id": "coastliner", "type": "sell", "cost": 1000, "base": 3600, "perStop": 250, "stops": 5, "time": 43200, "level": 12 }
+  ],
+  "boosts": [
+    { "id": "goldenharvest", "duration": 600, "cooldown": 172800, "energy": 3, "keys": 6, "cropGoods": 2 },
+    { "id": "rushhour", "duration": 600, "cooldown": 172800, "energy": 3, "keys": 6, "shopSpeed": 2, "payout": 1.5 }
+  ]
+}

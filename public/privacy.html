@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Honeyhollow - Privacy</title>
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+    <style>
+      :root {
+        --ink: #3b2a1e;
+        --soft: #6b5442;
+        --paper: #fffdf6;
+        --honey: #f5a623;
+      }
+      body {
+        margin: 0;
+        background: #fff3d6;
+        color: var(--ink);
+        font: 17px/1.55 system-ui, -apple-system, 'Segoe UI', sans-serif;
+      }
+      main {
+        max-width: 720px;
+        margin: 24px auto;
+        padding: 24px 28px 32px;
+        background: var(--paper);
+        border: 4px solid var(--ink);
+        border-radius: 22px;
+        box-shadow: 0 6px 0 rgba(59, 42, 30, 0.3);
+      }
+      h1 {
+        margin-top: 0;
+        font-size: 30px;
+      }
+      h2 {
+        margin: 26px 0 6px;
+        font-size: 20px;
+      }
+      li {
+        margin: 6px 0;
+      }
+      .note {
+        color: var(--soft);
+      }
+      a {
+        color: #1c7266;
+      }
+      @media (max-width: 760px) {
+        main {
+          margin: 0;
+          border-radius: 0;
+          border-width: 0 0 4px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Privacy in Honeyhollow</h1>
+      <p>Honeyhollow is free. There are no ads, no purchases, no trackers, no analytics and no third-party scripts or fonts. Nothing about you is sold or shared.</p>
+
+      <h2>Playing as a guest</h2>
+      <p>If you never create an account, everything stays in your own browser (its "local storage") and never leaves your device:</p>
+      <ul>
+        <li>your city save and one backup copy of it,</li>
+        <li>your settings (sound, music, volume, motion, colours, sharp zoom, day and night, hints),</li>
+        <li>a random id for this browser, used only to recognise your own cloud saves if you later sign in.</li>
+      </ul>
+      <p>To remove it: Settings → <em>Start a new city</em>, or clear this site's data in your browser.</p>
+
+      <h2>If you create an account (optional)</h2>
+      <p>An account lets you keep your city in the cloud and play with neighbors. We never ask for your email address or real name. The server keeps:</p>
+      <ul>
+        <li>your username, the portrait you picked and your town's name,</li>
+        <li>your password and your recovery code, stored only as secure one-way hashes (nobody can read them back),</li>
+        <li>your friend code and the list of neighbors you added,</li>
+        <li>your city save, your level and experience (for the weekly leaderboard among your neighbors),</li>
+        <li>helps, gifts and job requests you send or receive (removed after 30 days),</li>
+        <li>the franchises you run in neighbors' towns or host in yours, while they are open,</li>
+        <li>when you last played (to sort neighbor lists).</li>
+      </ul>
+      <p>
+        Two small cookies make sign-in work: <code>hh_session</code> keeps you signed in (up to 30 days of inactivity), and <code>hh_pre</code> protects the sign-in forms against forged requests. Both are
+        "HttpOnly" (pages and scripts can't read them) and are only sent to this game's own server.
+      </p>
+      <p>
+        To stop abuse, the server counts requests for a short time. It never stores your IP address: it keeps a scrambled, one-way fingerprint of it in those counters, and they are deleted within two
+        days.
+      </p>
+
+      <h2>Deleting your account</h2>
+      <p>Settings → <em>Account</em> → <em>Delete my account</em> deletes your account, cloud save, neighbor links, helps, gifts and franchises from the server at once. The city saved in your browser stays, as a guest city.</p>
+
+      <h2>Who runs this game</h2>
+      <p class="note">Honeyhollow is run by the owner of this website. If you have a question about your data, contact them using the contact details on this site.</p>
+
+      <p><a href="./">← Back to the game</a></p>
+    </main>
+  </body>
+</html>

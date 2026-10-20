@@ -1,0 +1,20 @@
+{
+  "achievements": [
+    {"id":"landlord","stat":"collect:rent","tiers":[25,250,1000],"icon":"coin"},
+    {"id":"greenthumb","stat":"harvest","tiers":[25,250,1000],"icon":"ripe"},
+    {"id":"shopkeeper","stat":"collect:shop","tiers":[10,100,500],"icon":"moneybag"},
+    {"id":"builder","stat":"build:click","tiers":[50,500,2500],"icon":"hammer"},
+    {"id":"neighborly","stat":"help","tiers":[10,100,500],"icon":"help"},
+    {"id":"collector","stat":"redeem","tiers":[1,10,40],"icon":"collections"},
+    {"id":"mayor","type":"population","tiers":[100,1000,5000],"icon":"population"},
+    {"id":"captain","stat":"ship:unload","tiers":[5,50,250],"icon":"ship"},
+    {"id":"conductor","stat":"train:collect","tiers":[5,50,250],"icon":"train"},
+    {"id":"pioneer","stat":"expand","tiers":[1,5,15],"icon":"expand"},
+    {"id":"regular","stat":"daily","tiers":[7,30,100],"icon":"daily"}
+  ],
+  "rewards": [
+    {"coins":500,"xp":50,"energy":3},
+    {"coins":3000,"xp":250,"energy":8},
+    {"coins":15000,"xp":1000,"energy":15,"permits":1}
+  ]
+}

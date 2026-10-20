@@ -1,0 +1,34 @@
+{
+  "events": [
+    {
+      "id": "harvestfest",
+      "from": "10-01",
+      "to": "11-15",
+      "items": [
+        {"id":"pumpkinstack","kind":"decoration","category":"events","size":[1,1],"price":400,"sort":1,"xp":4,"bonus":4,"theme":"garden","themeBonus":2,"unlock":{"level":2}},
+        {"id":"harvestwagon","kind":"decoration","category":"events","size":[2,2],"price":1500,"sort":2,"xp":12,"bonus":8,"radius":4,"unlock":{"level":4}}
+      ],
+      "collection": {"id":"harvestfest","items":["acorn","maple_leaf","cider","corn_doll","hay_bale"],"reward":{"coins":1000,"xp":120,"energy":5,"items":{"pumpkinstack":2}}},
+      "goals": [
+        {"id":"hf_harvest","char":"barnaby","order":100,"level":2,"tasks":[{"type":"stat","key":"harvest","count":10}],"reward":{"coins":300,"xp":40,"items":{"pumpkinstack":1}}},
+        {"id":"hf_decor","char":"barnaby","order":101,"requires":["hf_harvest"],"tasks":[{"type":"have","key":"pumpkinstack","count":2,"hint":"build:pumpkinstack"}],"reward":{"coins":500,"xp":60,"energy":5}},
+        {"id":"hf_ribbon","char":"hazel","order":102,"requires":["hf_decor"],"tasks":[{"type":"stat","key":"redeem:harvestfest","count":1}],"reward":{"coins":1500,"xp":200,"items":{"harvestwagon":1}}}
+      ]
+    },
+    {
+      "id": "winterlights",
+      "from": "12-01",
+      "to": "01-10",
+      "items": [
+        {"id":"snowman","kind":"decoration","category":"events","size":[1,1],"price":500,"sort":1,"xp":5,"bonus":4,"unlock":{"level":2}},
+        {"id":"lighttree","kind":"decoration","category":"events","size":[1,1],"price":1200,"sort":2,"xp":10,"bonus":6,"radius":4,"unlock":{"level":3}}
+      ],
+      "collection": {"id":"winterlights","items":["mitten","cocoa","snow_globe","candle","star_ornament"],"reward":{"coins":1000,"xp":120,"energy":5,"items":{"snowman":1}}},
+      "goals": [
+        {"id":"wl_rent","char":"hazel","order":110,"level":2,"tasks":[{"type":"stat","key":"collect:rent","count":15}],"reward":{"coins":300,"xp":40,"items":{"snowman":1}}},
+        {"id":"wl_tree","char":"otis","order":111,"requires":["wl_rent"],"tasks":[{"type":"have","key":"lighttree","count":1,"hint":"build:lighttree"}],"reward":{"coins":500,"xp":60,"energy":5}},
+        {"id":"wl_glow","char":"hazel","order":112,"requires":["wl_tree"],"tasks":[{"type":"stat","key":"redeem:winterlights","count":1}],"reward":{"coins":1500,"xp":200,"items":{"lighttree":1}}}
+      ]
+    }
+  ]
+}

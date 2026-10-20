@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#f5a623" />
+    <meta name="description" content="Honeyhollow - a free, friendly city-building game you play right in your browser. No downloads, no purchases, no ads." />
+    <!-- Where the optional PHP API lives, relative to this page. Change it if you install the API elsewhere. -->
+    <meta name="honeyhollow-api" content="api/" />
+    <title>Honeyhollow</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="game" role="img" aria-label="Honeyhollow city view"></div>
+      <div id="fly" aria-hidden="true"></div>
+      <div id="tooltip" class="hidden" role="tooltip"></div>
+      <div id="toasts" aria-live="polite"></div>
+      <div id="dialogs"></div>
+    </div>
+    <div id="boot" role="status">
+      <div class="boot-card">
+        <svg class="boot-bee" viewBox="0 0 64 64" aria-hidden="true">
+          <ellipse cx="22" cy="18" rx="12" ry="8" fill="#fff" opacity=".9" stroke="#3b2a1e" stroke-width="2.5" transform="rotate(-25 22 18)" />
+          <ellipse cx="42" cy="18" rx="12" ry="8" fill="#fff" opacity=".9" stroke="#3b2a1e" stroke-width="2.5" transform="rotate(25 42 18)" />
+          <ellipse cx="32" cy="38" rx="20" ry="16" fill="#ffd23f" stroke="#3b2a1e" stroke-width="3" />
+          <path d="M22 25 v26 M32 22 v32 M42 25 v26" stroke="#3b2a1e" stroke-width="5" />
+          <circle cx="48" cy="34" r="2.5" fill="#3b2a1e" />
+        </svg>
+        <div class="boot-logo">Honeyhollow</div>
+        <div class="boot-tag">Build a busy little town, one click at a time.</div>
+        <div class="boot-bar"><div id="boot-fill"></div></div>
+        <div class="boot-msg" id="boot-msg">Loading…</div>
+        <noscript><p>Honeyhollow needs JavaScript to run.</p></noscript>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

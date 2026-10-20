@@ -1,0 +1,64 @@
+# Honeyhollow - web server settings for the game folder (public_html or a
+# subfolder of it). Works on Hostinger (LiteSpeed) and plain Apache.
+
+Options -Indexes
+DirectoryIndex index.html
+
+# ------------------------------------------------------------------ HTTPS --
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Send every visitor to the secure https:// address.
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Private things are never served, even if copied here by mistake.
+  RewriteRule (^|/)(_private|\.git|node_modules)(/|$) - [F,L]
+  RewriteRule (^|/)config(\.sample)?\.php$ - [F,L]
+  RewriteRule \.(sql|md|log|ini|sh|bak|env|lock|ts)$ - [F,L]
+</IfModule>
+
+# Hidden files (.htaccess, .env, ...) are never served.
+<FilesMatch "^\.">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# ------------------------------------------------------------------ types --
+<IfModule mod_mime.c>
+  AddType application/manifest+json .webmanifest
+  AddType text/javascript .js .mjs
+  AddType font/woff2 .woff2
+  AddType image/svg+xml .svg
+</IfModule>
+
+# ------------------------------------------------------------ compression --
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/javascript application/javascript application/json application/manifest+json image/svg+xml
+</IfModule>
+
+<IfModule mod_headers.c>
+  # ------------------------------------------------------------- caching --
+  # Build files in assets/ have unique names and get a year-long cache
+  # (assets/.htaccess). The page, the service worker and the manifest must
+  # always be checked, so players get updates right away.
+  <FilesMatch "(\.html|sw\.js|\.webmanifest)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  <FilesMatch "\.(png|svg|ico)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+
+  # ------------------------------------------------------------ security --
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
+</IfModule>

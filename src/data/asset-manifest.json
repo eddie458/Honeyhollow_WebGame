@@ -1,0 +1,682 @@
+{
+  "version": 1,
+  "notes": "Every sprite key the game uses is produced here. 'sprites' entries are drawn procedurally from params. To use real art (e.g. a CC0 Kenney.nl sheet or your own PNGs) add an entry to 'overrides' with either { \"image\": \"art/file.png\", \"anchor\": [x, y], \"res\": 1 } or { \"atlas\": \"art/sheet.json\", \"atlasImage\": \"art/sheet.png\", \"frame\": \"name.png\", \"anchor\": [x, y], \"res\": 1 }. Anchor = pixel of the footprint's top corner (buildings) or the ground point (props). Keys may end in .0/.1 for the two facings; otherwise facing 1 is the mirrored facing 0. Files go in public/art/.",
+  "sprites": {
+    "item.cottage": {
+      "gen": "building",
+      "params": {
+        "style": "house",
+        "wall": "#f3e3bf",
+        "roof": "#e8a93a",
+        "roofType": "gable",
+        "floors": 1,
+        "floorH": 22,
+        "inset": 0.25,
+        "chimney": true,
+        "door": "#c8483c"
+      }
+    },
+    "item.bungalow": {
+      "gen": "building",
+      "params": {
+        "style": "house",
+        "wall": "#bfe6d0",
+        "roof": "#3e8e8a",
+        "roofType": "hip",
+        "floors": 1,
+        "floorH": 24,
+        "porch": true,
+        "door": "#7a4e2d"
+      }
+    },
+    "item.rowhouse": {
+      "gen": "building",
+      "params": {
+        "style": "house",
+        "wall": "#b5533c",
+        "brick": true,
+        "roof": "#5b6b7a",
+        "roofType": "gableSide",
+        "floors": 2,
+        "floorH": 20,
+        "trim": "#f3e3bf",
+        "chimney": true
+      }
+    },
+    "item.duplex": {
+      "gen": "building",
+      "params": {
+        "style": "house",
+        "wall": "#cfe0f5",
+        "roof": "#c8483c",
+        "roofType": "gable",
+        "floors": 2,
+        "floorH": 20,
+        "doors": 2
+      }
+    },
+    "item.townhouse": {
+      "gen": "building",
+      "params": {
+        "style": "house",
+        "wall": "#f6c6a8",
+        "roof": "#5b6b7a",
+        "roofType": "hip",
+        "floors": 3,
+        "floorH": 18,
+        "inset": 0.5,
+        "balcony": true
+      }
+    },
+    "item.brownstone": {
+      "gen": "building",
+      "params": {
+        "style": "house",
+        "wall": "#9a6a4f",
+        "roof": "#6b4a3a",
+        "roofType": "flat",
+        "floors": 3,
+        "floorH": 19,
+        "trim": "#f3e3bf",
+        "arch": true
+      }
+    },
+    "item.villa": {
+      "gen": "building",
+      "params": {
+        "style": "house",
+        "wall": "#ffe08a",
+        "roof": "#d0663f",
+        "roofType": "hip",
+        "floors": 2,
+        "floorH": 22,
+        "balcony": true,
+        "arch": true,
+        "wing": true
+      }
+    },
+    "item.apartments": {
+      "gen": "building",
+      "params": {
+        "style": "house",
+        "wall": "#e8dcc4",
+        "roof": "#8a7f72",
+        "roofType": "flat",
+        "floors": 5,
+        "floorH": 17,
+        "balcony": true,
+        "tank": true
+      }
+    },
+    "item.bakery": {
+      "gen": "building",
+      "params": {
+        "style": "shop",
+        "wall": "#fff1d6",
+        "roof": "#c8483c",
+        "roofType": "flat",
+        "floors": 1,
+        "floorH": 26,
+        "awning": [
+          "#e8574a",
+          "#fff4e0"
+        ],
+        "sign": "bread",
+        "prop": "croissant",
+        "propSize": 36,
+        "pave": true
+      }
+    },
+    "item.florist": {
+      "gen": "building",
+      "params": {
+        "style": "shop",
+        "wall": "#e6f7e0",
+        "roof": "#5cb043",
+        "roofType": "gable",
+        "floors": 1,
+        "floorH": 24,
+        "inset": 0.25,
+        "awning": [
+          "#ff6fa3",
+          "#ffffff"
+        ],
+        "sign": "flowers",
+        "prop": "flowers",
+        "propSize": 28,
+        "pave": true
+      }
+    },
+    "item.cafe": {
+      "gen": "building",
+      "params": {
+        "style": "shop",
+        "wall": "#e9d3b8",
+        "roof": "#7a4e2d",
+        "roofType": "flat",
+        "floors": 2,
+        "floorH": 21,
+        "awning": [
+          "#2a9d8f",
+          "#f3e3bf"
+        ],
+        "sign": "cup",
+        "prop": "cup",
+        "propSize": 36,
+        "pave": true
+      }
+    },
+    "item.toyshop": {
+      "gen": "building",
+      "params": {
+        "style": "shop",
+        "wall": "#cfe0ff",
+        "roof": "#5c7cfa",
+        "roofType": "gable",
+        "floors": 2,
+        "floorH": 20,
+        "awning": [
+          "#ffd23f",
+          "#ff6b6b"
+        ],
+        "sign": "top",
+        "prop": "top",
+        "propSize": 30,
+        "pave": true
+      }
+    },
+    "item.burgers": {
+      "gen": "building",
+      "params": {
+        "style": "shop",
+        "wall": "#fff4e0",
+        "roof": "#e8574a",
+        "roofType": "flat",
+        "floors": 1,
+        "floorH": 26,
+        "awning": [
+          "#ffd23f",
+          "#e8574a"
+        ],
+        "sign": "burger",
+        "prop": "burger",
+        "propSize": 38,
+        "pave": true
+      }
+    },
+    "item.diner": {
+      "gen": "building",
+      "params": {
+        "style": "shop",
+        "wall": "#c9f2ee",
+        "roof": "#e8574a",
+        "roofType": "flat",
+        "floors": 1,
+        "floorH": 26,
+        "awning": [
+          "#ff6fa3",
+          "#ffffff"
+        ],
+        "sign": "shake",
+        "prop": "shake",
+        "propSize": 38,
+        "pave": true,
+        "trim": "#e8574a"
+      }
+    },
+    "item.billiards": {
+      "gen": "building",
+      "params": {
+        "style": "shop",
+        "wall": "#2f5d50",
+        "roof": "#1f3b2d",
+        "roofType": "flat",
+        "floors": 2,
+        "floorH": 22,
+        "awning": [
+          "#2f5d50",
+          "#f3e3bf"
+        ],
+        "sign": "eightball",
+        "prop": "eightball",
+        "propSize": 36,
+        "trim": "#f3e3bf",
+        "pave": true
+      }
+    },
+    "item.sushi": {
+      "gen": "building",
+      "params": {
+        "style": "shop",
+        "wall": "#fff8e7",
+        "roof": "#2b2b35",
+        "roofType": "hip",
+        "floors": 1,
+        "floorH": 26,
+        "awning": [
+          "#d7263d",
+          "#ffffff"
+        ],
+        "sign": "fish",
+        "prop": "sushi",
+        "propSize": 30,
+        "trim": "#d7263d",
+        "pave": true
+      }
+    },
+    "item.inn": {
+      "gen": "building",
+      "params": {
+        "style": "shop",
+        "wall": "#f3e3bf",
+        "roof": "#3e8e8a",
+        "roofType": "gable",
+        "floors": 3,
+        "floorH": 19,
+        "timber": true,
+        "trim": "#7a4e2d",
+        "sign": "bed",
+        "balcony": true,
+        "pave": true,
+        "chimney": true
+      }
+    },
+    "item.townhall": {
+      "gen": "building",
+      "params": {
+        "style": "civic",
+        "wall": "#f3ead6",
+        "roof": "#3e8e8a",
+        "roofType": "dome",
+        "floors": 2,
+        "floorH": 22,
+        "columns": true,
+        "clock": true,
+        "flag": "#e8574a",
+        "pave": true
+      }
+    },
+    "item.postoffice": {
+      "gen": "building",
+      "params": {
+        "style": "civic",
+        "wall": "#d6e6f5",
+        "roof": "#5c7cfa",
+        "roofType": "hip",
+        "floors": 2,
+        "floorH": 20,
+        "sign": "envelope",
+        "prop": "pigeon",
+        "propSize": 18,
+        "pave": true
+      }
+    },
+    "item.firestation": {
+      "gen": "building",
+      "params": {
+        "style": "civic",
+        "wall": "#c8483c",
+        "brick": true,
+        "roof": "#5b6b7a",
+        "roofType": "flat",
+        "floors": 2,
+        "floorH": 22,
+        "garage": true,
+        "sign": "flame",
+        "bell": true,
+        "pave": true
+      }
+    },
+    "item.library": {
+      "gen": "building",
+      "params": {
+        "style": "civic",
+        "wall": "#e8dcc4",
+        "roof": "#8a5a3a",
+        "roofType": "gable",
+        "floors": 2,
+        "floorH": 22,
+        "columns": true,
+        "sign": "book",
+        "prop": "book",
+        "propSize": 26,
+        "pave": true
+      }
+    },
+    "item.school": {
+      "gen": "building",
+      "params": {
+        "style": "civic",
+        "wall": "#d97b5a",
+        "brick": true,
+        "roof": "#5b6b7a",
+        "roofType": "flat",
+        "floors": 2,
+        "floorH": 20,
+        "bell": true,
+        "sign": "apple",
+        "flag": "#5c7cfa",
+        "pave": true
+      }
+    },
+    "item.clinic": {
+      "gen": "building",
+      "params": {
+        "style": "civic",
+        "wall": "#ffffff",
+        "roof": "#5cb043",
+        "roofType": "flat",
+        "floors": 3,
+        "floorH": 18,
+        "sign": "heart",
+        "signBg": "#e6f7e0",
+        "prop": "heart",
+        "propSize": 22,
+        "trim": "#5cb043",
+        "glass": "#c8f0e8",
+        "pave": true
+      }
+    },
+    "item.barn": {
+      "gen": "building",
+      "params": {
+        "style": "barn",
+        "wall": "#c8483c",
+        "roof": "#6b4a3a",
+        "floorH": 26
+      }
+    },
+    "item.silo": {
+      "gen": "building",
+      "params": {
+        "style": "silo",
+        "wall": "#d8d5ce",
+        "roof": "#c8483c",
+        "floorH": 46
+      }
+    },
+    "item.bigbarn": {
+      "gen": "building",
+      "params": {
+        "style": "barn",
+        "wall": "#a83a30",
+        "roof": "#5b6b7a",
+        "floorH": 32,
+        "prop": "hay",
+        "propSize": 18
+      }
+    },
+    "item.warehouse": {
+      "gen": "building",
+      "params": {
+        "style": "warehouse",
+        "wall": "#9aa6b8",
+        "roof": "#6b6e73",
+        "roofType": "gableSide",
+        "floors": 1,
+        "floorH": 30,
+        "garage": true,
+        "sign": "crate",
+        "pave": true,
+        "trim": "#e5e5e5"
+      }
+    },
+    "item.flowerbed": {
+      "gen": "deco",
+      "name": "flowerbed"
+    },
+    "item.hedge": {
+      "gen": "deco",
+      "name": "hedge"
+    },
+    "item.bench": {
+      "gen": "deco",
+      "name": "bench"
+    },
+    "item.lamppost": {
+      "gen": "deco",
+      "name": "lamppost"
+    },
+    "item.shadetree": {
+      "gen": "deco",
+      "name": "shadetree"
+    },
+    "item.bunting": {
+      "gen": "deco",
+      "name": "bunting"
+    },
+    "item.birdbath": {
+      "gen": "deco",
+      "name": "birdbath"
+    },
+    "item.picnic": {
+      "gen": "deco",
+      "name": "picnic"
+    },
+    "item.topiary": {
+      "gen": "deco",
+      "name": "topiary"
+    },
+    "item.fountain": {
+      "gen": "deco",
+      "name": "fountain"
+    },
+    "item.rosearch": {
+      "gen": "deco",
+      "name": "rosearch"
+    },
+    "item.gazebo": {
+      "gen": "deco",
+      "name": "gazebo"
+    },
+    "item.bandstand": {
+      "gen": "deco",
+      "name": "bandstand"
+    },
+    "item.beestatue": {
+      "gen": "deco",
+      "name": "beestatue"
+    },
+    "item.clockpost": {
+      "gen": "deco",
+      "name": "clockpost"
+    },
+    "item.goldenhive": {
+      "gen": "deco",
+      "name": "goldenhive"
+    },
+    "item.lakeview": {
+      "gen": "building",
+      "params": {
+        "style": "house",
+        "wall": "#bfe3f0",
+        "roof": "#3e8e8a",
+        "roofType": "flat",
+        "floors": 5,
+        "floorH": 18,
+        "balcony": true,
+        "trim": "#ffffff",
+        "glass": "#9fdcf5"
+      }
+    },
+    "item.skyhive": {
+      "gen": "building",
+      "params": {
+        "style": "house",
+        "wall": "#f6e3a1",
+        "roof": "#e8a93a",
+        "roofType": "hip",
+        "floors": 7,
+        "floorH": 17,
+        "balcony": true,
+        "inset": 0.6,
+        "tank": false,
+        "trim": "#ffffff"
+      }
+    },
+    "item.emporium": {
+      "gen": "building",
+      "params": {
+        "style": "shop",
+        "wall": "#ffe0e9",
+        "roof": "#b98cf0",
+        "roofType": "flat",
+        "floors": 2,
+        "floorH": 24,
+        "awning": [
+          "#b98cf0",
+          "#ffffff"
+        ],
+        "sign": "bag",
+        "prop": "bag",
+        "propSize": 34,
+        "pave": true
+      }
+    },
+    "item.giftshop": {
+      "gen": "building",
+      "params": {
+        "style": "shop",
+        "wall": "#fff1f6",
+        "roof": "#ff6fa3",
+        "roofType": "gable",
+        "floors": 2,
+        "floorH": 20,
+        "awning": [
+          "#ff6fa3",
+          "#ffe08a"
+        ],
+        "sign": "gift",
+        "prop": "gift",
+        "propSize": 32,
+        "pave": true
+      }
+    },
+    "item.cinema": {
+      "gen": "building",
+      "params": {
+        "style": "shop",
+        "wall": "#3b2a4a",
+        "roof": "#2b2b35",
+        "roofType": "flat",
+        "floors": 2,
+        "floorH": 26,
+        "awning": [
+          "#ffd23f",
+          "#e8574a"
+        ],
+        "sign": "star",
+        "signBg": "#ffd23f",
+        "prop": "reel",
+        "propSize": 40,
+        "trim": "#ffd23f",
+        "glass": "#ffd1e6",
+        "pave": true
+      }
+    },
+    "item.police": {
+      "gen": "building",
+      "params": {
+        "style": "civic",
+        "wall": "#d6e1f0",
+        "roof": "#2f4858",
+        "roofType": "flat",
+        "floors": 2,
+        "floorH": 22,
+        "sign": "star",
+        "signBg": "#d6e1f0",
+        "prop": "star",
+        "propSize": 20,
+        "flag": "#5c7cfa",
+        "pave": true
+      }
+    },
+    "item.museum": {
+      "gen": "building",
+      "params": {
+        "style": "civic",
+        "wall": "#efe6d2",
+        "roof": "#8a7f72",
+        "roofType": "gable",
+        "floors": 2,
+        "floorH": 26,
+        "columns": true,
+        "sign": "star",
+        "prop": "key",
+        "propSize": 26,
+        "pave": true
+      }
+    },
+    "item.radiotower": {
+      "gen": "building",
+      "params": {
+        "style": "civic",
+        "wall": "#e8eef2",
+        "roof": "#e8574a",
+        "roofType": "flat",
+        "floors": 3,
+        "floorH": 20,
+        "sign": "bell",
+        "bell": true,
+        "flag": "#e8574a",
+        "pave": true
+      }
+    },
+    "item.pier": {
+      "gen": "special",
+      "name": "pier"
+    },
+    "item.station": {
+      "gen": "special",
+      "name": "station"
+    },
+    "item.greathive": {
+      "gen": "special",
+      "name": "greathive"
+    },
+    "item.skygarden": {
+      "gen": "special",
+      "name": "skygarden"
+    },
+    "item.lighthouse": {
+      "gen": "special",
+      "name": "lighthouse"
+    },
+    "item.observatory": {
+      "gen": "special",
+      "name": "observatory"
+    },
+    "item.emptylot": {
+      "gen": "special",
+      "name": "emptylot"
+    },
+    "item.hq": {
+      "gen": "building",
+      "params": {
+        "style": "civic",
+        "wall": "#f6efe0",
+        "roof": "#2a6f97",
+        "roofType": "flat",
+        "floors": 3,
+        "floorH": 20,
+        "columns": true,
+        "flag": "#ffd23f",
+        "sign": "star",
+        "pave": true
+      }
+    },
+    "item.pumpkinstack": {
+      "gen": "deco"
+    },
+    "item.harvestwagon": {
+      "gen": "deco"
+    },
+    "item.snowman": {
+      "gen": "deco"
+    },
+    "item.lighttree": {
+      "gen": "deco"
+    }
+  },
+  "overrides": {}
+}

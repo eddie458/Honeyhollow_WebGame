@@ -1,0 +1,62 @@
+{
+  "npcs": [
+    {
+      "id": "pip",
+      "town": "thistledown",
+      "level": 14,
+      "avatar": "pip",
+      "theme": "farm",
+      "seed": 1201,
+      "crops": ["strawberry", "eggplant", "watermelon", "carrot", "corn", "pumpkin", "wheat"],
+      "roads": [
+        [0, 15], [3, 15], [6, 15], [9, 15], [12, 15], [15, 15], [18, 15], [21, 15], [24, 15], [27, 15], [30, 15], [33, 15],
+        [18, 0], [18, 3], [18, 6], [18, 9], [18, 12],
+        [9, 18], [9, 21], [9, 24], [9, 27], [9, 30]
+      ],
+      "objects": [
+        ["bakery", 0, 12], ["cottage", 3, 13], ["cottage", 6, 13], ["bungalow", 9, 12], ["townhall", 13, 11],
+        ["plot", 1, 1], ["plot", 4, 1], ["plot", 7, 1], ["plot", 10, 1], ["plot", 1, 4], ["plot", 4, 4], ["plot", 7, 4], ["plot", 10, 4],
+        ["barn", 13, 1], ["silo", 14, 5], ["shadetree", 2, 9], ["shadetree", 6, 9], ["shadetree", 10, 9], ["hedge", 15, 8], ["hedge", 16, 8],
+        ["florist", 21, 13], ["cafe", 23, 12], ["bungalow", 26, 12], ["cottage", 29, 13], ["cottage", 32, 13],
+        ["bigbarn", 21, 2], ["plot", 26, 1], ["plot", 29, 1], ["plot", 26, 4], ["plot", 29, 4],
+        ["shadetree", 33, 2], ["shadetree", 33, 6], ["flowerbed", 21, 8], ["flowerbed", 22, 8], ["flowerbed", 23, 8], ["bench", 25, 9],
+        ["cottage", 0, 18], ["cottage", 3, 18], ["bungalow", 6, 18],
+        ["plot", 0, 22], ["plot", 3, 22], ["plot", 0, 25], ["plot", 3, 25], ["plot", 0, 28], ["plot", 3, 28], ["barn", 6, 22],
+        ["rowhouse", 12, 18], ["duplex", 15, 18], ["cottage", 18, 18], ["postoffice", 12, 21],
+        ["plot", 12, 25], ["plot", 15, 25], ["plot", 18, 25], ["plot", 12, 28], ["plot", 15, 28], ["plot", 18, 28],
+        ["fountain", 22, 19], ["flowerbed", 21, 22], ["flowerbed", 22, 22], ["shadetree", 25, 20], ["shadetree", 28, 22],
+        ["shadetree", 31, 19], ["shadetree", 23, 26], ["shadetree", 27, 29], ["shadetree", 32, 30], ["birdbath", 30, 25]
+      ],
+      "sites": [["cottage", 24, 18], ["bungalow", 27, 18]]
+    },
+    {
+      "id": "rosa",
+      "town": "driftwood",
+      "level": 22,
+      "avatar": "rosa",
+      "theme": "seaside",
+      "seed": 3307,
+      "crops": ["strawberry", "watermelon", "cranberry"],
+      "roads": [
+        [0, 15], [3, 15], [6, 15], [9, 15], [12, 15], [15, 15], [18, 15], [21, 15], [24, 15], [27, 15], [30, 15], [33, 15],
+        [9, 0], [9, 3], [9, 6], [9, 9], [9, 12], [9, 18], [9, 21], [9, 24], [9, 27],
+        [24, 0], [24, 3], [24, 6], [24, 9], [24, 12], [24, 18], [24, 21], [24, 24], [24, 27],
+        [0, 30], [3, 30], [6, 30], [9, 30], [12, 30], [15, 30], [18, 30], [21, 30], [24, 30]
+      ],
+      "objects": [
+        ["rowhouse", 0, 12], ["duplex", 3, 12], ["rowhouse", 6, 12], ["townhouse", 12, 12], ["townhouse", 15, 12], ["duplex", 18, 12],
+        ["rowhouse", 21, 12], ["cafe", 27, 12], ["toyshop", 30, 12], ["florist", 33, 13],
+        ["rowhouse", 6, 8], ["townhouse", 12, 8], ["rowhouse", 21, 8], ["duplex", 27, 8],
+        ["gazebo", 2, 2], ["fountain", 14, 3], ["bench", 17, 4], ["bench", 18, 4], ["shadetree", 4, 6], ["shadetree", 34, 3], ["lamppost", 20, 5],
+        ["plot", 28, 1], ["plot", 31, 1], ["plot", 31, 4], ["plot", 33, 7], ["plot", 30, 9],
+        ["burgers", 0, 18], ["diner", 3, 18], ["sushi", 6, 18], ["inn", 12, 18], ["emporium", 16, 18], ["bakery", 20, 18], ["billiards", 28, 18],
+        ["fountain", 2, 23], ["bench", 5, 23], ["bench", 6, 23], ["bandstand", 13, 23], ["picnic", 18, 23], ["bunting", 21, 22], ["topiary", 28, 23],
+        ["flowerbed", 31, 23], ["flowerbed", 32, 23], ["lamppost", 4, 25], ["lamppost", 20, 26],
+        ["duplex", 0, 27], ["rowhouse", 3, 27], ["townhouse", 6, 27], ["duplex", 12, 27], ["rowhouse", 15, 27], ["duplex", 18, 27], ["townhouse", 21, 27],
+        ["duplex", 27, 27], ["gazebo", 30, 27],
+        ["pier", 12, 33], ["lighthouse", 28, 32], ["bench", 4, 34], ["bench", 7, 34], ["shadetree", 20, 34], ["bunting", 24, 34]
+      ],
+      "sites": [["cafe", 6, 2]]
+    }
+  ]
+}

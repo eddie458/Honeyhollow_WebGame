@@ -1,0 +1,14 @@
+{
+  "characters": [
+    { "id": "hazel", "role": "planner", "portrait": "hazel" },
+    { "id": "barnaby", "role": "farmer", "portrait": "barnaby" },
+    { "id": "otis", "role": "merchant", "portrait": "otis" },
+    { "id": "marigold", "role": "captain", "portrait": "marigold" },
+    { "id": "pip", "role": "npc", "portrait": "pip" },
+    { "id": "rosa", "role": "npc", "portrait": "rosa" }
+  ],
+  "avatars": [
+    "beekeeper", "baker", "sailor", "gardener", "painter", "chef",
+    "explorer", "mechanic", "musician", "scientist", "firefighter", "librarian"
+  ]
+}

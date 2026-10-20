@@ -1,0 +1,10 @@
+node_modules/
+dist/
+upload/
+coverage/
+*.log
+.DS_Store
+Thumbs.db
+# Server secrets - never commit real credentials
+server/api/_private/config.php
+.vite/

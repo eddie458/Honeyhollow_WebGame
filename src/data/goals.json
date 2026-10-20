@@ -1,0 +1,654 @@
+{
+  "goals": [
+    {
+      "id": "tut_rent",
+      "char": "hazel",
+      "order": 1,
+      "tutorial": true,
+      "tasks": [
+        {"type": "stat", "key": "collect:rent", "count": 1, "hint": "object:cottage"}
+      ],
+      "reward": {"coins": 50, "xp": 10}
+    },
+    {
+      "id": "tut_harvest",
+      "char": "barnaby",
+      "order": 2,
+      "tutorial": true,
+      "tasks": [
+        {"type": "stat", "key": "harvest", "count": 2, "hint": "object:plot"}
+      ],
+      "reward": {"coins": 50, "xp": 10}
+    },
+    {
+      "id": "tut_plant",
+      "char": "barnaby",
+      "order": 3,
+      "tutorial": true,
+      "requires": ["tut_harvest"],
+      "tasks": [
+        {
+          "type": "stat",
+          "key": "plant:strawberry",
+          "count": 2,
+          "hint": "object:plot"
+        }
+      ],
+      "reward": {"coins": 60, "xp": 10}
+    },
+    {
+      "id": "tut_home",
+      "char": "hazel",
+      "order": 4,
+      "tutorial": true,
+      "tasks": [
+        {"type": "stat", "key": "built:cottage", "count": 1, "hint": "build:cottage"}
+      ],
+      "reward": {"coins": 100, "xp": 15}
+    },
+    {
+      "id": "tut_bakery",
+      "char": "otis",
+      "order": 5,
+      "tutorial": true,
+      "requires": ["tut_home"],
+      "tasks": [
+        {"type": "stat", "key": "built:bakery", "count": 1, "hint": "build:bakery"}
+      ],
+      "reward": {"coins": 150, "xp": 20}
+    },
+    {
+      "id": "tut_supply",
+      "char": "otis",
+      "order": 6,
+      "tutorial": true,
+      "requires": ["tut_bakery"],
+      "tasks": [
+        {"type": "stat", "key": "supply", "count": 1, "hint": "object:bakery"}
+      ],
+      "reward": {"xp": 15, "energy": 2}
+    },
+    {
+      "id": "tut_sale",
+      "char": "otis",
+      "order": 7,
+      "tutorial": true,
+      "requires": ["tut_supply"],
+      "tasks": [
+        {"type": "stat", "key": "collect:shop", "count": 1, "hint": "object:bakery"}
+      ],
+      "reward": {"coins": 100, "xp": 20}
+    },
+    {
+      "id": "tut_berries",
+      "char": "barnaby",
+      "order": 8,
+      "tutorial": true,
+      "requires": ["tut_plant"],
+      "tasks": [
+        {
+          "type": "stat",
+          "key": "harvest:strawberry",
+          "count": 2,
+          "hint": "object:plot"
+        }
+      ],
+      "reward": {"coins": 80, "xp": 15}
+    },
+    {
+      "id": "tut_roads",
+      "char": "hazel",
+      "order": 9,
+      "tutorial": true,
+      "requires": ["tut_bakery"],
+      "tasks": [
+        {"type": "stat", "key": "place:road", "count": 2, "hint": "build:road"}
+      ],
+      "reward": {"coins": 50, "xp": 10}
+    },
+    {
+      "id": "tut_decor",
+      "char": "otis",
+      "order": 10,
+      "tutorial": true,
+      "requires": ["tut_sale"],
+      "tasks": [
+        {
+          "type": "stat",
+          "key": "place:kind:decoration",
+          "count": 2,
+          "hint": "build:flowerbed"
+        }
+      ],
+      "reward": {"coins": 100, "xp": 15}
+    },
+    {
+      "id": "tut_townhall",
+      "char": "hazel",
+      "order": 11,
+      "tutorial": true,
+      "requires": ["tut_roads"],
+      "tasks": [
+        {
+          "type": "stat",
+          "key": "built:townhall",
+          "count": 1,
+          "hint": "build:townhall"
+        }
+      ],
+      "reward": {"coins": 300, "xp": 30, "volunteers": 2}
+    },
+    {
+      "id": "tut_bonus",
+      "char": "hazel",
+      "order": 12,
+      "tutorial": true,
+      "requires": ["tut_rent"],
+      "tasks": [
+        {"type": "stat", "key": "bonus:stage:1", "count": 1, "hint": "ui:bonus"}
+      ],
+      "reward": {"coins": 100, "xp": 15}
+    },
+    {
+      "id": "tut_pop",
+      "char": "hazel",
+      "order": 13,
+      "tutorial": true,
+      "requires": ["tut_home"],
+      "tasks": [{"type":"population", "count":30, "hint":"build:bungalow"}],
+      "reward": {"coins": 200, "xp": 25}
+    },
+    {
+      "id": "tut_farm",
+      "char": "barnaby",
+      "order": 14,
+      "tutorial": true,
+      "requires": ["tut_berries"],
+      "tasks": [
+        {"type": "stat", "key": "place:plot", "count": 2, "hint": "build:plot"}
+      ],
+      "reward": {"coins": 100, "xp": 15}
+    },
+    {
+      "id": "tut_level",
+      "char": "hazel",
+      "order": 15,
+      "tutorial": true,
+      "requires": ["tut_pop"],
+      "tasks": [{"type":"level", "count":5}],
+      "reward": {"coins": 500, "volunteers": 1, "permits": 1}
+    },
+    {
+      "id": "g_bungalow",
+      "char": "hazel",
+      "order": 16,
+      "requires": ["tut_home"],
+      "level": 2,
+      "tasks": [
+        {
+          "type": "stat",
+          "key": "built:bungalow",
+          "count": 1,
+          "hint": "build:bungalow"
+        }
+      ],
+      "reward": {"coins": 200, "xp": 30}
+    },
+    {
+      "id": "g_florist",
+      "char": "otis",
+      "order": 17,
+      "requires": ["tut_decor"],
+      "tasks": [
+        {"type": "stat", "key": "built:florist", "count": 1, "hint": "build:florist"}
+      ],
+      "reward": {"coins": 250, "xp": 30}
+    },
+    {
+      "id": "g_harvest10",
+      "char": "barnaby",
+      "order": 18,
+      "requires": ["tut_farm"],
+      "tasks": [
+        {"type": "stat", "key": "harvest", "count": 10, "hint": "object:plot"}
+      ],
+      "reward": {"goods": 50, "xp": 40}
+    },
+    {
+      "id": "g_collect",
+      "char": "hazel",
+      "order": 19,
+      "requires": ["tut_townhall"],
+      "tasks": [{"type":"stat", "key":"collectible", "count":3}],
+      "reward": {"coins": 300, "xp": 30}
+    },
+    {
+      "id": "g_cafe",
+      "char": "otis",
+      "order": 20,
+      "requires": ["g_florist"],
+      "tasks": [
+        {"type": "stat", "key": "built:cafe", "count": 1, "hint": "build:cafe"}
+      ],
+      "reward": {"coins": 400, "xp": 50}
+    },
+    {
+      "id": "g_rent10",
+      "char": "hazel",
+      "order": 21,
+      "requires": ["g_bungalow"],
+      "tasks": [
+        {
+          "type": "stat",
+          "key": "collect:rent",
+          "count": 10,
+          "hint": "object:kind:house"
+        }
+      ],
+      "reward": {"coins": 300, "energy": 3}
+    },
+    {
+      "id": "g_postoffice",
+      "char": "hazel",
+      "order": 22,
+      "requires": ["tut_townhall"],
+      "level": 4,
+      "tasks": [
+        {
+          "type": "stat",
+          "key": "built:postoffice",
+          "count": 1,
+          "hint": "build:postoffice"
+        }
+      ],
+      "reward": {"xp": 60, "volunteers": 2}
+    },
+    {
+      "id": "g_decor6",
+      "char": "otis",
+      "order": 23,
+      "requires": ["g_florist"],
+      "tasks": [
+        {"type": "have", "key": "kind:decoration", "count": 8, "hint": "build:bench"}
+      ],
+      "reward": {"coins": 300, "xp": 40}
+    },
+    {
+      "id": "g_redeem",
+      "char": "hazel",
+      "order": 24,
+      "requires": ["g_collect"],
+      "tasks": [
+        {"type": "stat", "key": "redeem", "count": 1, "hint": "ui:collections"}
+      ],
+      "reward": {"xp": 100, "permits": 1}
+    },
+    {
+      "id": "g_silo",
+      "char": "barnaby",
+      "order": 25,
+      "requires": ["g_harvest10"],
+      "level": 3,
+      "tasks": [
+        {"type": "stat", "key": "built:silo", "count": 1, "hint": "build:silo"}
+      ],
+      "reward": {"goods": 100, "xp": 30}
+    },
+    {
+      "id": "g_daily",
+      "char": "hazel",
+      "order": 26,
+      "requires": ["tut_level"],
+      "tasks": [{"type":"stat", "key":"daily", "count":3, "hint":"ui:daily"}],
+      "reward": {"volunteers": 1, "energy": 5}
+    },
+    {
+      "id": "g_inn",
+      "char": "otis",
+      "order": 27,
+      "requires": ["g_cafe"],
+      "level": 6,
+      "tasks": [
+        {"type": "stat", "key": "built:inn", "count": 1, "hint": "build:inn"}
+      ],
+      "reward": {"coins": 800, "xp": 80}
+    },
+    {
+      "id": "g_pop100",
+      "char": "hazel",
+      "order": 28,
+      "requires": ["tut_level"],
+      "tasks": [{"type":"population", "count":100}],
+      "reward": {"coins": 500, "xp": 60}
+    },
+    {
+      "id": "g_toyshop",
+      "char": "otis",
+      "order": 29,
+      "requires": ["g_cafe"],
+      "tasks": [
+        {"type": "stat", "key": "built:toyshop", "count": 1, "hint": "build:toyshop"}
+      ],
+      "reward": {"coins": 500, "xp": 60}
+    },
+    {
+      "id": "g_corn",
+      "char": "barnaby",
+      "order": 30,
+      "requires": ["g_harvest10"],
+      "level": 3,
+      "tasks": [
+        {"type": "stat", "key": "plant:corn", "count": 2, "hint": "object:plot"}
+      ],
+      "reward": {"coins": 150, "xp": 25}
+    },
+    {
+      "id": "g_sales20",
+      "char": "otis",
+      "order": 31,
+      "requires": ["g_toyshop"],
+      "tasks": [{"type":"stat", "key":"collect:shop", "count":20}],
+      "reward": {"coins": 1000, "energy": 5}
+    },
+    {
+      "id": "g_firestation",
+      "char": "hazel",
+      "order": 32,
+      "requires": ["g_postoffice"],
+      "level": 6,
+      "tasks": [
+        {
+          "type": "stat",
+          "key": "built:firestation",
+          "count": 1,
+          "hint": "build:firestation"
+        }
+      ],
+      "reward": {"xp": 100, "volunteers": 2, "permits": 1}
+    },
+    {
+      "id": "n_visitpip",
+      "char": "hazel",
+      "order": 33,
+      "requires": ["tut_townhall"],
+      "tasks": [{"type":"stat", "key":"visit:pip", "count":1}],
+      "reward": {"energy": 3, "xp": 20}
+    },
+    {
+      "id": "n_visitrosa",
+      "char": "hazel",
+      "order": 34,
+      "requires": ["n_visitpip"],
+      "tasks": [{"type":"stat", "key":"visit:rosa", "count":1}],
+      "reward": {"coins": 300, "xp": 20}
+    },
+    {
+      "id": "n_help10",
+      "char": "hazel",
+      "order": 35,
+      "requires": ["n_visitrosa"],
+      "tasks": [{"type":"stat", "key":"help", "count":10}],
+      "reward": {"energy": 5, "parts": {"brick": 2}}
+    },
+    {
+      "id": "n_gifts5",
+      "char": "hazel",
+      "order": 36,
+      "requires": ["n_visitpip"],
+      "tasks": [
+        {"type": "stat", "key": "gift:accept", "count": 5, "hint": "ui:gifts"}
+      ],
+      "reward": {"volunteers": 2, "xp": 30}
+    },
+    {
+      "id": "m_expand1",
+      "char": "marigold",
+      "order": 37,
+      "requires": ["tut_level"],
+      "tasks": [{"type":"stat", "key":"expand", "count":1, "hint":"ui:expand"}],
+      "reward": {"coins": 500, "xp": 100}
+    },
+    {
+      "id": "m_pier",
+      "char": "marigold",
+      "order": 38,
+      "requires": ["tut_level"],
+      "level": 5,
+      "tasks": [
+        {"type": "stat", "key": "built:pier", "count": 1, "hint": "build:pier"}
+      ],
+      "reward": {"coins": 500, "xp": 60, "parts": {"brick": 1}}
+    },
+    {
+      "id": "m_ship3",
+      "char": "marigold",
+      "order": 39,
+      "requires": ["m_pier"],
+      "tasks": [
+        {"type": "stat", "key": "ship:start", "count": 3, "hint": "object:pier"}
+      ],
+      "reward": {"goods": 60, "xp": 40}
+    },
+    {
+      "id": "m_unload5",
+      "char": "marigold",
+      "order": 40,
+      "requires": ["m_ship3"],
+      "tasks": [
+        {"type": "stat", "key": "ship:unload", "count": 5, "hint": "object:pier"}
+      ],
+      "reward": {"coins": 800, "parts": {"toolkit": 1}}
+    },
+    {
+      "id": "m_train1",
+      "char": "marigold",
+      "order": 41,
+      "requires": ["tut_level"],
+      "level": 5,
+      "tasks": [
+        {"type": "stat", "key": "train:send", "count": 1, "hint": "object:station"}
+      ],
+      "reward": {"xp": 60, "parts": {"paint": 1}}
+    },
+    {
+      "id": "m_train5",
+      "char": "marigold",
+      "order": 42,
+      "requires": ["m_train1"],
+      "tasks": [
+        {
+          "type": "stat",
+          "key": "train:collect",
+          "count": 5,
+          "hint": "object:station"
+        }
+      ],
+      "reward": {"coins": 1500, "parts": {"toolkit": 2}}
+    },
+    {
+      "id": "u_upgrade1",
+      "char": "otis",
+      "order": 43,
+      "requires": ["g_sales20"],
+      "level": 8,
+      "tasks": [{"type":"stat", "key":"upgrade", "count":1}],
+      "reward": {"coins": 1000, "xp": 80, "parts": {"paint": 1}}
+    },
+    {
+      "id": "u_mastery",
+      "char": "otis",
+      "order": 44,
+      "requires": ["tut_sale"],
+      "tasks": [
+        {
+          "type": "stat",
+          "key": "collect:shop:bakery",
+          "count": 25,
+          "hint": "object:bakery"
+        }
+      ],
+      "reward": {"coins": 800, "parts": {"brick": 1}}
+    },
+    {
+      "id": "f_harvest50",
+      "char": "barnaby",
+      "order": 45,
+      "requires": ["g_harvest10"],
+      "tasks": [
+        {"type": "stat", "key": "harvest", "count": 50, "hint": "object:plot"}
+      ],
+      "reward": {"goods": 300, "parts": {"brick": 2}}
+    },
+    {
+      "id": "f_bigbarn",
+      "char": "barnaby",
+      "order": 46,
+      "requires": ["g_silo"],
+      "level": 8,
+      "tasks": [
+        {"type": "stat", "key": "built:bigbarn", "count": 1, "hint": "build:bigbarn"}
+      ],
+      "reward": {"xp": 100, "parts": {"toolkit": 1}}
+    },
+    {
+      "id": "c_library",
+      "char": "hazel",
+      "order": 47,
+      "requires": ["g_firestation"],
+      "level": 9,
+      "tasks": [
+        {"type": "stat", "key": "built:library", "count": 1, "hint": "build:library"}
+      ],
+      "reward": {"xp": 120, "volunteers": 2}
+    },
+    {
+      "id": "s_diner",
+      "char": "otis",
+      "order": 48,
+      "requires": ["g_toyshop"],
+      "tasks": [
+        {"type": "stat", "key": "built:diner", "count": 1, "hint": "build:diner"}
+      ],
+      "reward": {"coins": 1200, "xp": 90}
+    },
+    {
+      "id": "s_billiards",
+      "char": "otis",
+      "order": 49,
+      "requires": ["s_diner"],
+      "tasks": [
+        {
+          "type": "stat",
+          "key": "built:billiards",
+          "count": 1,
+          "hint": "build:billiards"
+        }
+      ],
+      "reward": {"coins": 1500, "xp": 120, "parts": {"paint": 1}}
+    },
+    {
+      "id": "p_pop300",
+      "char": "hazel",
+      "order": 50,
+      "requires": ["g_pop100"],
+      "tasks": [{"type":"population", "count":300}],
+      "reward": {"coins": 2000, "xp": 150, "permits": 1}
+    },
+    {
+      "id": "e_expand3",
+      "char": "marigold",
+      "order": 51,
+      "requires": ["m_expand1"],
+      "tasks": [{"type":"stat", "key":"expand", "count":3, "hint":"ui:expand"}],
+      "reward": {"coins": 3000, "xp": 200, "permits": 1}
+    },
+    {
+      "id": "h_townhouse",
+      "char": "hazel",
+      "order": 52,
+      "requires": ["g_rent10"],
+      "level": 7,
+      "tasks": [
+        {
+          "type": "stat",
+          "key": "built:townhouse",
+          "count": 2,
+          "hint": "build:townhouse"
+        }
+      ],
+      "reward": {"coins": 900, "xp": 90}
+    },
+    {
+      "id": "w_hive",
+      "char": "hazel",
+      "order": 53,
+      "requires": ["u_upgrade1"],
+      "level": 12,
+      "tasks": [
+        {
+          "type": "stat",
+          "key": "built:greathive",
+          "count": 1,
+          "hint": "build:greathive"
+        }
+      ],
+      "reward": {"xp": 500, "parts": {"key": 3}}
+    },
+    {
+      "id": "w_boost",
+      "char": "hazel",
+      "order": 54,
+      "requires": ["w_hive"],
+      "tasks": [
+        {"type": "stat", "key": "boost", "count": 1, "hint": "object:greathive"}
+      ],
+      "reward": {"energy": 10, "xp": 100}
+    },
+    {
+      "id": "w_skygarden",
+      "char": "hazel",
+      "order": 55,
+      "requires": ["w_boost"],
+      "level": 18,
+      "tasks": [
+        {
+          "type": "stat",
+          "key": "built:skygarden",
+          "count": 1,
+          "hint": "build:skygarden"
+        }
+      ],
+      "reward": {"xp": 900, "parts": {"key": 3}}
+    },
+    {
+      "id": "l_lighthouse",
+      "char": "marigold",
+      "order": 56,
+      "requires": ["m_unload5"],
+      "tasks": [
+        {
+          "type": "stat",
+          "key": "built:lighthouse",
+          "count": 1,
+          "hint": "build:lighthouse"
+        }
+      ],
+      "reward": {"xp": 600, "coins": 5000}
+    },
+    {
+      "id": "l_observatory",
+      "char": "hazel",
+      "order": 57,
+      "requires": ["l_lighthouse"],
+      "tasks": [
+        {
+          "type": "stat",
+          "key": "built:observatory",
+          "count": 1,
+          "hint": "build:observatory"
+        }
+      ],
+      "reward": {"xp": 1200, "coins": 10000}
+    }
+  ]
+}
