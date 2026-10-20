@@ -7,7 +7,8 @@ import { drawDeco } from './decor';
 import { ICONS, iconDataUrl, PORTRAITS } from './icons';
 import { citizenLooks, drawCitizen, drawVehicle, VEHICLE_KINDS } from './people';
 import { drawProp } from './props';
-import { CROP_ART, drawConstruction, drawLawnLot, drawPlot, drawRoad, drawSeaLot, drawSidewalk, drawWildLot, frameFor } from './terrain';
+import { CROP_ART, drawPlot } from './crops';
+import { drawConstruction, drawLawnLot, drawRoad, drawSeaLot, drawSidewalk, drawWildLot, frameFor } from './terrain';
 import { Iso } from './iso';
 import { drawBoat, drawEmptyLot, drawGreatHive, drawLighthouse, drawObservatory, drawPier, drawRail, drawSkyGarden, drawStation, drawTrain } from './special';
 

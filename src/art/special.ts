@@ -1,6 +1,7 @@
 // One-off art: pier (dock grows with upgrades), boats, the railway, station and
 // train, the two wonders and the two landmarks.
 import { PAL, shade } from './color';
+import { flowerClump } from './flora';
 import { HW, Iso, rect, windowPane, type Box } from './iso';
 import { nextLight } from './night';
 import { drawProp, signBoard } from './props';
@@ -271,15 +272,17 @@ export function drawGreatHive(bank: SpriteBank, key: string): void {
   bank.draw(key, f.W, f.H, f.ax, f.ay, (c) => {
     const iso = new Iso(c, f.ax, f.ay);
     iso.tile(0.1, 0.1, 4.8, 4.8, shade(PAL.lawn, 0.08), null);
-    // flower ring
-    for (let i = 0; i < 24; i++) {
-      const a = (i / 24) * Math.PI * 2;
-      const [sx, sy] = iso.p(2.5 + Math.cos(a) * 2.15, 2.5 + Math.sin(a) * 2.15, 0);
-      c.fillStyle = ['#ff6fa3', '#ffd23f', '#ffffff', '#b98cf0'][i % 4]!;
-      c.beginPath();
-      c.arc(sx, sy - 2, 2.2, 0, Math.PI * 2);
-      c.fill();
+    // a ring of flower clumps, back to front (small enough to stay clear of the hive)
+    const ring: [number, number][] = [];
+    for (let i = 0; i < 40; i++) {
+      const a = (i / 40) * Math.PI * 2;
+      ring.push([2.5 + Math.cos(a) * 2.15, 2.5 + Math.sin(a) * 2.15]);
     }
+    ring.sort((p, q) => p[0] + p[1] - (q[0] + q[1]));
+    ring.forEach(([x, y], i) => {
+      const [sx, sy] = iso.p(x, y, 0);
+      flowerClump(c, sx, sy, 4, ['#ff6fa3', '#ffd23f', '#ffffff', '#b98cf0'], 900 + i);
+    });
     iso.shadow({ x: 0.7, y: 0.7, w: 3.6, d: 3.6 }, 120);
     iso.cylinder(2.5, 2.5, 0, 1.75, 10, '#f3e3bf');
     const [sx, sy] = iso.p(2.5, 2.5, 10);

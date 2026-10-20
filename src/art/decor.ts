@@ -1,5 +1,6 @@
 // Decorations: small props that boost nearby payouts.
 import { PAL, shade } from './color';
+import { bloom, flowerPatch, leaf, pumpkin } from './flora';
 import { Iso, type Box } from './iso';
 import { nextLight } from './night';
 import { drawProp } from './props';
@@ -8,31 +9,15 @@ import type { SpriteBank } from './atlas';
 
 type DecoFn = (iso: Iso, c: CanvasRenderingContext2D, w: number, d: number) => void;
 
-function flowersOn(c: CanvasRenderingContext2D, iso: Iso, x0: number, y0: number, w: number, d: number, z: number, colors: string[], n: number, seed: number): void {
-  const pts: [number, number, number][] = [];
-  for (let i = 0; i < n; i++) {
-    const fx = x0 + ((Math.sin(i * 12.9898 + seed) * 43758.5453) % 1 + 1) % 1 * w;
-    const fy = y0 + ((Math.sin(i * 78.233 + seed) * 12345.678) % 1 + 1) % 1 * d;
-    pts.push([fx, fy, i]);
-  }
-  pts.sort((a, b) => a[0] + a[1] - (b[0] + b[1]));
-  for (const [fx, fy, i] of pts) {
-    const [sx, sy] = iso.p(fx, fy, z);
-    c.fillStyle = '#3f9a3a';
-    c.fillRect(sx - 0.5, sy - 4, 1, 4);
-    c.fillStyle = colors[i % colors.length]!;
-    c.beginPath();
-    c.arc(sx, sy - 5, 1.9, 0, Math.PI * 2);
-    c.fill();
-    c.fillStyle = 'rgba(255,255,255,0.7)';
-    c.fillRect(sx - 0.6, sy - 5.6, 1, 1);
-  }
-}
+const BED_COLORS = ['#ff6fa3', '#ffd23f', '#ff8a3d', '#b98cf0', '#ffffff', '#ff5d6c'];
+const ROSES = ['#ff5d7a', '#ff9ab0', '#ff7b95'];
 
 const DECOS: Record<string, DecoFn> = {
   flowerbed(iso, c) {
-    iso.box({ x: 0.08, y: 0.08, z: 0, w: 0.84, d: 0.84, h: 4 }, { top: '#6b4a2b', left: '#a5703f', right: '#7a4e2d' });
-    flowersOn(c, iso, 0.15, 0.15, 0.7, 0.7, 4, ['#ff6fa3', '#ffd23f', '#ff8a3d', '#b98cf0', '#ffffff'], 9, 3);
+    // a low timber edge packed with soil and heaped with flowers that spill over it
+    iso.shadow({ x: 0.06, y: 0.06, w: 0.88, d: 0.88 }, 10, 0.18);
+    iso.box({ x: 0.06, y: 0.06, z: 0, w: 0.88, d: 0.88, h: 5 }, { top: '#6b4a2b', left: '#a5703f', right: '#7a4e2d' });
+    flowerPatch(c, iso, 0.07, 0.07, 0.86, 0.86, 5, BED_COLORS, 4, 3, 5);
   },
   hedge(iso) {
     iso.box({ x: 0.1, y: 0.1, z: 0, w: 0.8, d: 0.8, h: 12 }, { top: '#6cc04a', left: '#4f9d35', right: '#3d7f2a' }, 'rgba(30,60,20,0.5)');
@@ -204,17 +189,19 @@ const DECOS: Record<string, DecoFn> = {
     c.strokeStyle = '#4f9d35';
     c.lineWidth = 4;
     c.stroke();
-    for (let i = 0; i <= 10; i++) {
-      const t = i / 10;
-      const x = ax + (bx - ax) * t;
-      const y = ay + (by - ay) * t - Math.sin(t * Math.PI) * 11;
-      c.fillStyle = i % 2 ? '#ff5d7a' : '#ff9ab0';
-      c.beginPath();
-      c.arc(x + (i % 3) - 1, y + ((i * 7) % 3) - 1, 2.6, 0, Math.PI * 2);
-      c.fill();
+    // climbing roses: leaves along the arch, then the flowers
+    const along = (t: number): [number, number] => [ax + (bx - ax) * t, ay + (by - ay) * t - Math.sin(t * Math.PI) * 11];
+    for (let i = 0; i <= 16; i++) {
+      const [x, y] = along(i / 16);
+      const side = i % 2 ? 1 : -1;
+      leaf(c, x, y, x + side * 5, y + 3.5, 3.4, i % 3 ? '#4f9d35' : '#62b246', '#2f6b22');
     }
-    flowersOn(c, iso, 0.1, 1.4, 0.4, 0.5, 0, ['#ff5d7a', '#ff9ab0'], 4, 7);
-    flowersOn(c, iso, 1.4, 0.1, 0.5, 0.4, 0, ['#ff5d7a', '#ff9ab0'], 4, 9);
+    for (let i = 0; i <= 12; i++) {
+      const [x, y] = along(i / 12);
+      bloom(c, x + ((i * 5) % 3) - 1, y + ((i * 7) % 3) - 1.5, 3.4, ROSES[i % ROSES.length]!, 40 + i, '#ffe08a');
+    }
+    flowerPatch(c, iso, 0.02, 1.35, 0.5, 0.6, 0, ROSES, 3, 7, 4.4);
+    flowerPatch(c, iso, 1.35, 0.02, 0.6, 0.5, 0, ROSES, 3, 9, 4.4);
   },
   gazebo(iso, c) {
     iso.cylinder(1, 1, 0, 0.8, 4, '#e8dcc4');
@@ -462,31 +449,6 @@ const DECOS: Record<string, DecoFn> = {
     drawProp(c, 'bee', sx - 16, sy - 32, 8);
   },
 };
-
-/** A ribbed pumpkin with a stem, centred at (x, y). */
-function pumpkin(c: CanvasRenderingContext2D, x: number, y: number, r: number): void {
-  c.fillStyle = '#f08a24';
-  c.beginPath();
-  c.ellipse(x, y, r * 1.15, r * 0.85, 0, 0, Math.PI * 2);
-  c.fill();
-  c.strokeStyle = 'rgba(120,50,10,0.55)';
-  c.lineWidth = 1;
-  for (const k of [-0.5, 0, 0.5]) {
-    c.beginPath();
-    c.ellipse(x + k * r * 0.8, y, r * 0.35, r * 0.82, 0, 0, Math.PI * 2);
-    c.stroke();
-  }
-  c.strokeStyle = 'rgba(59,42,30,0.6)';
-  c.beginPath();
-  c.ellipse(x, y, r * 1.15, r * 0.85, 0, 0, Math.PI * 2);
-  c.stroke();
-  c.fillStyle = 'rgba(255,230,180,0.45)';
-  c.beginPath();
-  c.ellipse(x - r * 0.45, y - r * 0.35, r * 0.3, r * 0.18, -0.4, 0, Math.PI * 2);
-  c.fill();
-  c.fillStyle = '#5b7a2b';
-  c.fillRect(x - 1, y - r * 0.85 - 3, 2, 4);
-}
 
 export function hasDeco(name: string): boolean {
   return name in DECOS;
