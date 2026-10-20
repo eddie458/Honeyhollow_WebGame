@@ -204,7 +204,7 @@ select {
   right: calc(230px + var(--safe-right));
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 18px;
+  gap: 10px;
   align-items: center;
 }
 
@@ -225,12 +225,14 @@ select {
   cursor: default;
 }
 
+/* Each icon sits inside the pill, centred on its rounded left end (the end's
+   centre is half the pill's height in from the edge). */
 .pill > .ico {
   position: absolute;
-  left: -10px;
+  left: 1px;
   top: 50%;
-  width: 46px;
-  height: 46px;
+  width: 36px;
+  height: 36px;
   transform: translateY(-50%);
   filter: drop-shadow(0 2px 0 rgba(0, 0, 0, 0.18));
 }
@@ -270,22 +272,21 @@ select {
 }
 
 .pill.small > .ico {
-  width: 38px;
-  height: 38px;
-  left: -8px;
+  width: 30px;
+  height: 30px;
+  left: 1px;
 }
 
 .levelpill {
-  padding-left: 52px;
-  min-width: 170px;
+  min-width: 160px;
 }
 
 .levelpill > .lvlstar {
   position: absolute;
-  left: -14px;
+  left: 1px;
   top: 50%;
-  width: 60px;
-  height: 60px;
+  width: 36px;
+  height: 36px;
   transform: translateY(-50%);
   display: grid;
   place-items: center;
@@ -300,8 +301,7 @@ select {
 
 .levelpill > .lvlstar b {
   position: relative;
-  font-size: 18px;
-  margin-top: 4px;
+  font-size: 14px;
   color: var(--ink);
 }
 
@@ -697,8 +697,7 @@ select {
   outline-offset: 1px;
 }
 
-.toolbtn:active,
-.buildbtn:active {
+.toolbtn:active {
   transform: translateY(2px);
   box-shadow: 0 1px 0 rgba(59, 42, 30, 0.35);
 }
@@ -706,10 +705,12 @@ select {
 .buildbtn {
   grid-column: 4;
   grid-row: 1 / span 2;
+  padding: 2px 6px 7px;
   border: 3px solid var(--ink);
   border-radius: 20px;
   background: linear-gradient(180deg, #ffc65c, var(--honey));
-  box-shadow: 0 5px 0 var(--honey-dark), 0 8px 18px rgba(40, 30, 20, 0.25);
+  /* the darker lip stays inside the outline, like .btn */
+  box-shadow: inset 0 -5px 0 var(--honey-dark), 0 3px 0 rgba(59, 42, 30, 0.35), 0 8px 18px rgba(40, 30, 20, 0.25);
   cursor: pointer;
   font-weight: 700;
   font-size: 20px;
@@ -719,6 +720,11 @@ select {
   align-items: center;
   justify-content: center;
   gap: 2px;
+}
+
+.buildbtn:active {
+  transform: translateY(2px);
+  box-shadow: inset 0 -3px 0 var(--honey-dark), 0 1px 0 rgba(59, 42, 30, 0.35);
 }
 
 .buildbtn .ico {
@@ -748,15 +754,17 @@ select {
 
 .modebar .btn {
   min-height: 38px;
-  padding: 4px 14px;
+  padding: 3px 14px 7px;
   font-size: 15px;
 }
 
 /* ------------------------------------------------------------- buttons -- */
 
 .btn {
+  --lip: var(--teal-dark);
   min-height: 44px;
-  padding: 8px 18px;
+  /* 4px more at the bottom centres the label on the face above the lip */
+  padding: 6px 18px 10px;
   border: 3px solid var(--ink);
   border-radius: 14px;
   background: linear-gradient(180deg, #4fc3b4, var(--teal));
@@ -764,7 +772,9 @@ select {
   font-weight: 700;
   font-size: 17px;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
-  box-shadow: 0 4px 0 var(--teal-dark);
+  /* The darker lip is drawn inside the outline, so no colour spills outside
+     the button; underneath is the same soft shadow as the HUD pills. */
+  box-shadow: inset 0 -4px 0 var(--lip), 0 3px 0 rgba(59, 42, 30, 0.35);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -773,8 +783,17 @@ select {
 }
 
 .btn:active {
-  transform: translateY(3px);
-  box-shadow: 0 1px 0 var(--teal-dark);
+  transform: translateY(2px);
+  box-shadow: inset 0 -2px 0 var(--lip), 0 1px 0 rgba(59, 42, 30, 0.35);
+}
+
+/* An icon and its label wrapped in one span: centre the icon on the text
+   (as an inline box it would sit on the baseline) and keep a gap. */
+.btn > span:not(.ico) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
 
 .btn:disabled {
@@ -789,27 +808,27 @@ select {
 }
 
 .btn.honey {
+  --lip: var(--honey-dark);
   background: linear-gradient(180deg, #ffc65c, var(--honey));
   color: var(--ink);
   text-shadow: none;
-  box-shadow: 0 4px 0 var(--honey-dark);
 }
 
 .btn.red {
+  --lip: var(--red-dark);
   background: linear-gradient(180deg, #f27a6f, var(--red));
-  box-shadow: 0 4px 0 var(--red-dark);
 }
 
 .btn.plain {
+  --lip: #eadfc6;
   background: var(--paper);
   color: var(--ink);
   text-shadow: none;
-  box-shadow: 0 4px 0 rgba(59, 42, 30, 0.3);
 }
 
 .btn.small {
   min-height: 36px;
-  padding: 4px 12px;
+  padding: 3px 12px 7px;
   font-size: 15px;
 }
 
@@ -1313,15 +1332,19 @@ select {
   border-radius: 999px;
   background: #d9cfba;
   position: relative;
+  margin: 0;
   cursor: pointer;
   flex: none;
 }
 
+/* The knob is 20px including its border (the global border-box rule doesn't
+   reach pseudo-elements), so it sits 2px from every edge of the 48x24 track. */
 .switch::after {
   content: '';
   position: absolute;
   top: 2px;
   left: 2px;
+  box-sizing: border-box;
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -1886,33 +1909,30 @@ select {
 @media (max-width: 760px) {
   .topbar {
     right: calc(62px + var(--safe-right));
-    gap: 6px 14px;
-    left: calc(16px + var(--safe-left));
+    gap: 6px 8px;
+    left: calc(12px + var(--safe-left));
   }
   .pill {
     font-size: 15px;
     min-height: 36px;
-    padding: 2px 10px 2px 30px;
+    padding: 2px 10px 2px 32px;
   }
   .pill > .ico {
-    width: 36px;
-    height: 36px;
-    left: -8px;
+    width: 28px;
+    height: 28px;
   }
   .pill .sub {
     display: none;
   }
   .levelpill {
-    min-width: 116px;
-    padding-left: 40px;
+    min-width: 108px;
   }
   .levelpill > .lvlstar {
-    width: 48px;
-    height: 48px;
-    left: -10px;
+    width: 28px;
+    height: 28px;
   }
   .levelpill > .lvlstar b {
-    font-size: 15px;
+    font-size: 12px;
   }
   .xpbar {
     min-width: 46px;
